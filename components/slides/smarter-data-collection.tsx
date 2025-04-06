@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Database } from "lucide-react"
 
-export default function Slide11() {
+export default function SmarterDataCollection() {
   return (
     <div className="flex flex-col items-center justify-center h-full px-8 md:px-16">
       <motion.div

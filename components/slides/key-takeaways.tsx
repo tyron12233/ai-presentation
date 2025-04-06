@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Lightbulb } from "lucide-react"
 
-export default function Slide17() {
+export default function KeyTakewaays() {
   return (
     <div className="flex flex-col items-center justify-center h-full px-8 md:px-16">
       <motion.div

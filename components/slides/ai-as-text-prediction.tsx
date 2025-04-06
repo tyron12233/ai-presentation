@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { MessageSquareText } from "lucide-react"
 
-export default function Slide5() {
+export default function AiAsTextPrediction() {
   const sentence = "The cat sat on the"
   const predictions = [
     { word: "mat", probability: 0.45 },

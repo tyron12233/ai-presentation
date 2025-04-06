@@ -1,9 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Sparkles } from "lucide-react"
+import { Target } from "lucide-react"
 
-export default function Slide12() {
+export default function RealtimePersonalization() {
   return (
     <div className="flex flex-col items-center justify-center h-full px-8 md:px-16">
       <motion.div
@@ -12,7 +12,7 @@ export default function Slide12() {
         transition={{ duration: 0.5 }}
         className="max-w-4xl mx-auto"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center">Intelligent Data Cleaning & Prep</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center">Real-time Personalization</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <motion.div
@@ -21,24 +21,22 @@ export default function Slide12() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="bg-white/5 p-6 rounded-xl backdrop-blur-sm"
           >
-            <h3 className="text-2xl font-semibold mb-4 text-red-400">Messy Data = Bad Marketing</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-red-400">One Size Fits Few</h3>
             <div className="flex justify-center mb-4">
               <svg width="80" height="80" viewBox="0 0 100 100">
                 <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.5 }}>
-                  {/* Messy data visualization */}
-                  <rect x="10" y="20" width="20" height="10" fill="#ef4444" rx="2" />
-                  <rect x="15" y="40" width="30" height="10" fill="#ef4444" rx="2" />
-                  <rect x="50" y="30" width="25" height="10" fill="#ef4444" rx="2" />
-                  <rect x="60" y="50" width="20" height="10" fill="#ef4444" rx="2" />
-                  <rect x="30" y="60" width="35" height="10" fill="#ef4444" rx="2" />
-                  <rect x="20" y="80" width="15" height="10" fill="#ef4444" rx="2" />
-                  <rect x="70" y="70" width="20" height="10" fill="#ef4444" rx="2" />
+                  {/* Generic content visualization */}
+                  <rect x="20" y="20" width="60" height="60" fill="#ef4444" fillOpacity="0.3" rx="4" />
+                  <rect x="30" y="30" width="40" height="10" fill="#ef4444" fillOpacity="0.6" rx="2" />
+                  <rect x="30" y="45" width="40" height="5" fill="#ef4444" fillOpacity="0.6" rx="2" />
+                  <rect x="30" y="55" width="40" height="5" fill="#ef4444" fillOpacity="0.6" rx="2" />
+                  <rect x="30" y="65" width="40" height="5" fill="#ef4444" fillOpacity="0.6" rx="2" />
                 </motion.g>
               </svg>
             </div>
             <p className="text-lg text-gray-300">
-              Raw data is often messy – duplicates, missing values, inconsistent formatting. Using dirty data leads to
-              inaccurate targeting and wasted budget.
+              Sending the same generic message to everyone is ineffective. True personalization requires understanding
+              individual context.
             </p>
           </motion.div>
 
@@ -48,13 +46,13 @@ export default function Slide12() {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="bg-white/5 p-6 rounded-xl backdrop-blur-sm"
           >
-            <h3 className="text-2xl font-semibold mb-4 text-green-400">AI Cleans & Standardizes</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-purple-400">AI Delivers 1:1 Experiences</h3>
             <div className="flex justify-center mb-4">
-              <Sparkles className="w-12 h-12 text-green-400" />
+              <Target className="w-12 h-12 text-purple-400" />
             </div>
             <p className="text-lg text-gray-300">
-              AI excels at pattern recognition, making it great for data cleaning. It identifies inconsistencies,
-              suggests corrections, and standardizes formats automatically.
+              AI engines analyze real-time behavior and instantly trigger personalized content, product suggestions, or
+              tailored offers across different channels.
             </p>
           </motion.div>
         </div>
@@ -67,7 +65,7 @@ export default function Slide12() {
         >
           <h3 className="text-2xl font-semibold mb-2 text-center">Benefit</h3>
           <p className="text-xl text-center text-gray-300">
-            Ensures higher quality data, leading to more reliable insights and effective campaigns.
+            Dramatically improves customer experience, engagement, and loyalty.
           </p>
         </motion.div>
       </motion.div>

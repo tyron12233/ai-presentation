@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Zap } from "lucide-react"
 
-export default function Slide10() {
+export default function AiInAction() {
   return (
     <div className="flex flex-col items-center justify-center h-full px-8 md:px-16">
       <motion.div

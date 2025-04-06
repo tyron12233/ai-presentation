@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Sparkles } from "lucide-react"
 
-export default function Slide6() {
+export default function StatisticalModelsAndPatternRecognition() {
   return (
     <div className="flex flex-col items-center justify-center h-full px-8 md:px-16">
       <motion.div
