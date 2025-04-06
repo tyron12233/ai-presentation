@@ -10,7 +10,7 @@ import Introduction from "@/components/slides/introduction"
 import Slide4 from "@/components/slides/slide-4"
 import AiAsTextPrediction from "@/components/slides/ai-as-text-prediction"
 import StatisticalModelsAndPatternRecognition from "@/components/slides/statistical-models-and-pattern-recognition"
-import Slide7 from "@/components/slides/slide-7"
+import LimitationsOfAi from "@/components/slides/limitations-of-ai"
 import Slide8 from "@/components/slides/slide-8"
 import Slide9 from "@/components/slides/slide-9"
 import AiInAction from "@/components/slides/ai-in-action"
@@ -19,7 +19,7 @@ import IntelligentDataCleaning from "@/components/slides/intelligent-data-cleani
 import AutomatedCustomerSegmentation from "@/components/slides/automated-customer-segmentation"
 import RealtimePersonalization from "@/components/slides/realtime-personalization"
 import Slide15 from "@/components/slides/slide-15"
-import Slide16 from "@/components/slides/slide-16"
+import PredictiveAnalytics from "@/components/slides/predictive-analytics"
 import KeyTakewaays from "@/components/slides/key-takeaways"
 import Slide18 from "@/components/slides/slide-18"
 import Slide19 from "@/components/slides/slide-19"
@@ -45,7 +45,8 @@ const REFERENCE_WIDTH = 1920; // Design base width in px (adjust if needed)
 // ---------------------------------------
 
 export default function Home() {
-  const [currentSlide] = useCurrentSlide();
+  // Assume useCurrentSlide now returns [currentSlide, setCurrentSlide]
+  const {currentSlide, setCurrentSlide} = useCurrentSlide();
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showFullscreenPrompt, setShowFullscreenPrompt] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -53,7 +54,6 @@ export default function Home() {
   const presentationContainerRef = useRef<HTMLDivElement>(null); // Ref for the 16:9 container
 
   const slides = [
-    // ...(your slide array remains the same)
     <Slide1 key="slide-1" />,
     <SpeakerIntroduction key="speaker-introduction"/>,
     <AboutPresentationWebsite key="about-presentation-website"/>,
@@ -67,8 +67,8 @@ export default function Home() {
     <AiTextPredictionAnalogy key="ai-text-prediction-analogy"/>,
     <AiPredictionModel key="ai-prediction-model"/>,
     <StatisticalModelsAndPatternRecognition key="statistical-models-and-pattern-recognition" />,
-    // <AiAsTextPrediction key="ai-as-text-prediction" />,
-    <Slide7 key="slide-7" />,
+    <AiAsTextPrediction key="ai-as-text-prediction" />,
+    <LimitationsOfAi key="slide-7" />,
     <Slide8 key="slide-8" />,
     <Slide9 key="slide-9" />,
     <AiInAction key="slide-10" />,
@@ -77,7 +77,7 @@ export default function Home() {
     <AutomatedCustomerSegmentation key="slide-13" />,
     <RealtimePersonalization key="slide-14" />,
     <Slide15 key="slide-15" />,
-    <Slide16 key="slide-16" />,
+    <PredictiveAnalytics key="slide-16" />,
     <AnimoChatModerationIntro key="animo-chat-moderation-intro" />,
     <PromptBreakdown key="prompt-breakdown"/>,
     <InputFormatting key="input-formatting"/>,
@@ -138,7 +138,6 @@ export default function Home() {
         const width = entry.contentRect.width;
         if (width > 0) {
            const calculatedScale = width / REFERENCE_WIDTH;
-           // Clamp scale factor if needed, e.g., setScaleFactor(Math.min(1, calculatedScale));
            setScaleFactor(calculatedScale);
         }
       }
@@ -147,15 +146,26 @@ export default function Home() {
     resizeObserver.observe(container);
     // --------------------
 
+    // --- Arrow Key Manual Override ---
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        setCurrentSlide(prev => Math.min(prev + 1, slides.length - 1));
+      } else if (e.key === "ArrowLeft") {
+        setCurrentSlide(prev => Math.max(prev - 1, 0));
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
     // Cleanup listeners
     return () => {
       document.removeEventListener('fullscreenchange', checkFullscreenStatus);
       document.removeEventListener('webkitfullscreenchange', checkFullscreenStatus);
       document.removeEventListener('mozfullscreenchange', checkFullscreenStatus);
       document.removeEventListener('MSFullscreenChange', checkFullscreenStatus);
-      resizeObserver.disconnect(); // Disconnect observer on cleanup
+      document.removeEventListener("keydown", handleKeyDown);
+      resizeObserver.disconnect();
     };
-  }, [checkFullscreenStatus]); // Add checkFullscreenStatus as dependency
+  }, [checkFullscreenStatus, setCurrentSlide, slides.length]);
   // -----------------
 
   // --- Render ---
@@ -204,7 +214,6 @@ export default function Home() {
         </button>
       </div>
 
-
       {/* Portrait Mode Overlay (remains the same) */}
       <div className="landscape:hidden fixed inset-0 z-50 bg-slate-900/95 backdrop-blur-md flex flex-col items-center justify-center text-center p-8 pointer-events-auto">
          <RotateCw className="w-16 h-16 text-blue-400 mb-6 animate-spin" style={{ animationDuration: '3s' }}/>
@@ -215,7 +224,7 @@ export default function Home() {
       {/* Fullscreen Prompt Modal (remains the same) */}
       <AnimatePresence>
         {showFullscreenPrompt && !isFullscreen && isMobile && (
-          <motion.div /* ... modal content ... */ className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 pointer-events-auto">
+          <motion.div className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 pointer-events-auto">
              <div className="bg-slate-800 p-6 rounded-lg shadow-xl text-center max-w-sm border border-slate-700">
                <Smartphone className="w-12 h-12 text-purple-400 mx-auto mb-4"/>
                <h3 className="text-xl font-semibold mb-3">Enhance Your View</h3>

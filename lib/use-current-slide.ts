@@ -31,7 +31,10 @@ export default function useCurrentSlide() {
         };
     }, []);
 
-    return [
-        currentSlide
-    ]
+    return {
+
+        currentSlide,
+        setCurrentSlide
+    
+    }
 }
