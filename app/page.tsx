@@ -34,10 +34,14 @@ import AiTextPredictionAnalogy from "@/components/slides/ai-text-prediction-anal
 import AiPredictionModel from "@/components/slides/ai-prediction-model"
 import Slide3Enhanced from "@/components/slides/slide-3"
 import AboutPresentationWebsite from "@/components/slides/about-presentation-website"
+import HookDrowningInData from "@/components/slides/hook-drowning-in-data"
+import ChallengeManualStruggle from "@/components/slides/challenge-manual-struggle"
+import IntroducingSolutionAI from "@/components/slides/introducing-solution-ai"
+import GoalAndRoadmap from "@/components/slides/goal-and-roadmap"
 // ---------------------------------------
 
 // --- Define Reference Width for Scaling ---
-const REFERENCE_WIDTH = 1280; // Design base width in px (adjust if needed)
+const REFERENCE_WIDTH = 1920; // Design base width in px (adjust if needed)
 // ---------------------------------------
 
 export default function Home() {
@@ -53,7 +57,11 @@ export default function Home() {
     <Slide1 key="slide-1" />,
     <SpeakerIntroduction key="speaker-introduction"/>,
     <AboutPresentationWebsite key="about-presentation-website"/>,
-    <Introduction key="slide-2" />,
+    <HookDrowningInData key="hook-drowning-in-data" />,
+    <ChallengeManualStruggle key="challenge-manual-struggle" />,
+    <IntroducingSolutionAI key="introducing-solution-ai" />,
+    <GoalAndRoadmap key="goal-and-roadmap" />,
+    <Introduction key="ai-beyond-the-hype" />,
     <Slide3Enhanced key="slide-3" />,
     <Slide4 key="slide-4" />,
     <AiTextPredictionAnalogy key="ai-text-prediction-analogy"/>,
@@ -157,7 +165,7 @@ export default function Home() {
       {/* 16:9 Aspect Ratio Container - Attach Ref Here */}
       <div
          ref={presentationContainerRef} // Attach the ref
-         className="relative w-full aspect-video max-h-full max-w-full bg-black shadow-2xl overflow-hidden"
+         className="relative w-full aspect-video max-h-full max-w-full shadow-2xl overflow-hidden"
        >
         {/* Slide Rendering Area (Framer Motion for transitions) */}
         <AnimatePresence mode="wait">
