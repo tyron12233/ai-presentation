@@ -38,6 +38,8 @@ import HookDrowningInData from "@/components/slides/hook-drowning-in-data"
 import ChallengeManualStruggle from "@/components/slides/challenge-manual-struggle"
 import IntroducingSolutionAI from "@/components/slides/introducing-solution-ai"
 import GoalAndRoadmap from "@/components/slides/goal-and-roadmap"
+import PredictiveAnalyticsExample from "@/components/slides/predictive-analytics-example"
+import PredictiveAnalyticsExample2 from "@/components/slides/predictive-analytics-example-2"
 // ---------------------------------------
 
 // --- Define Reference Width for Scaling ---
@@ -77,7 +79,9 @@ export default function Home() {
     <AutomatedCustomerSegmentation key="slide-13" />,
     <RealtimePersonalization key="slide-14" />,
     <Slide15 key="slide-15" />,
-    <PredictiveAnalytics key="slide-16" />,
+    <PredictiveAnalytics key="predictive-analytics" />,
+    <PredictiveAnalyticsExample key="predictive-analytics-example" />,
+    <PredictiveAnalyticsExample2  key="predictive-analytics-example-2" />,
     <AnimoChatModerationIntro key="animo-chat-moderation-intro" />,
     <PromptBreakdown key="prompt-breakdown"/>,
     <InputFormatting key="input-formatting"/>,
