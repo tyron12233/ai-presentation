@@ -18,6 +18,10 @@ async function incrementSlide() {
     const currentSlide = await getCurrentSlide();
     if (currentSlide === null) return;
 
+    if (currentSlide - 1 < 0) {
+        return;
+    }
+
     const newSlide = currentSlide + 1;
     const { error } = await supabase
         .from('public_data')
