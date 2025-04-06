@@ -32,7 +32,7 @@ async function decrementSlide() {
   const currentSlide = await getCurrentSlide();
   if (currentSlide === null) return;
 
-  if (currentSlide - 1 < 1) {
+  if (currentSlide - 1 < 0) {
     return;
   }
 
